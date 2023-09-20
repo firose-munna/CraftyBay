@@ -1,6 +1,9 @@
+import 'package:craftybay/presentation/ui/screens/auth/otp_verification_screen.dart';
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+
 
 class emailVerificationScreen extends StatefulWidget {
   const emailVerificationScreen({super.key});
@@ -31,12 +34,18 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
                   color: Colors.grey
                 ),),
                 const SizedBox(height: 22,),
-                TextFormField(),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: "Email"
+                  ),
+                ),
                 const SizedBox(height: 10,),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: (){}, child: const Text("Next"),
+                      onPressed: (){
+                        Get.to(const otpVerificationScreen());
+                      }, child: const Text("Next"),
                   ),
                 )
               ],
