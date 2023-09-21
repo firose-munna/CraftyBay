@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:craftybay/presentation/ui/screens/auth/complete_profile_screen.dart';
 import 'package:craftybay/presentation/ui/utility/color_palette.dart';
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class otpVerificationScreen extends StatefulWidget {
@@ -14,14 +16,20 @@ class otpVerificationScreen extends StatefulWidget {
 }
 
 class _otpVerificationScreenState extends State<otpVerificationScreen> {
+  late Timer _timer;
 
-  int seconds =0;
+  int seconds =120;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     otpTimer();
+  }
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -96,7 +104,9 @@ class _otpVerificationScreenState extends State<otpVerificationScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.offAll(const completeProfileScreen());
+                      },
                       child: const Text("Next"),
                     ),
                   ),
@@ -130,12 +140,15 @@ class _otpVerificationScreenState extends State<otpVerificationScreen> {
   }
 
   void otpTimer() {
-    Timer.periodic(const Duration(seconds: 1), (timer) async {
-      seconds++;
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+      seconds--;
+      setState(() {
 
-      if(seconds== 120){
-        timer.cancel();
-        seconds =0;
+      });
+
+      if(seconds== 0){
+        _timer.cancel();
+        seconds =120;
       }
     });
   }

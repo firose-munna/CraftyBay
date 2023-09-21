@@ -13,6 +13,9 @@ class emailVerificationScreen extends StatefulWidget {
 }
 
 class _emailVerificationScreenState extends State<emailVerificationScreen> {
+
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -20,35 +23,49 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
         body: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Center(
-            child: Column(
-              children: [
+            child: Form(
+              key: _formkey,
+              child: Column(
+                children: [
 
-                const SizedBox(height: 80,),
-                SvgPicture.asset(ImagePaths.craftyBayLogoSVG, width:  100,),
-                const SizedBox(height: 16,),
-                Text("Welcome Back", style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontSize: 24,
-                ),),
-                const SizedBox(height: 6,),
-                Text("Please Enter Your Email Address", style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.grey
-                ),),
-                const SizedBox(height: 22,),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: "Email"
+                  const SizedBox(height: 80,),
+                  SvgPicture.asset(ImagePaths.craftyBayLogoSVG, width:  100,),
+                  const SizedBox(height: 16,),
+                  Text("Welcome Back", style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontSize: 24,
+                  ),),
+                  const SizedBox(height: 6,),
+                  Text("Please Enter Your Email Address", style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: Colors.grey
+                  ),),
+                  const SizedBox(height: 22,),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      hintText: "Email"
+                    ),
+                    validator: (String? value){
+                      if((value?.isEmpty?? true) || value!.length <= 5){
+                        return "*Enter valid email";
+                      }
+                      return null;
+                    },
                   ),
-                ),
-                const SizedBox(height: 10,),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: (){
+                  const SizedBox(height: 10,),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+
+                      onPressed: () {
+                        if(!_formkey.currentState!.validate()){
+                          return;
+                        }
                         Get.to(const otpVerificationScreen());
-                      }, child: const Text("Next"),
-                  ),
-                )
-              ],
+                      },
+                      child: const Text("Next"),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
