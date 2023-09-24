@@ -5,14 +5,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 
-class emailVerificationScreen extends StatefulWidget {
-  const emailVerificationScreen({super.key});
+class EmailVerificationScreen extends StatefulWidget {
+  const EmailVerificationScreen({super.key});
 
   @override
-  State<emailVerificationScreen> createState() => _emailVerificationScreenState();
+  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
 }
 
-class _emailVerificationScreenState extends State<emailVerificationScreen> {
+class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -44,7 +44,7 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
                       hintText: "Email"
                     ),
                     validator: (String? value){
-                      if((value?.isEmpty?? true) || value!.length <= 5){
+                      if(value?.isEmpty?? true){
                         return "*Enter valid email";
                       }
                       return null;
@@ -59,7 +59,7 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
                         if(!_formkey.currentState!.validate()){
                           return;
                         }
-                        Get.to(const otpVerificationScreen());
+                        Get.to(const OtpVerificationScreen());
                       },
                       child: const Text("Next"),
                     ),

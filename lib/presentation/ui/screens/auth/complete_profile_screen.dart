@@ -5,14 +5,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 
-class completeProfileScreen extends StatefulWidget {
-  const completeProfileScreen({super.key});
+class CompleteProfileScreen extends StatefulWidget {
+  const CompleteProfileScreen({super.key});
 
   @override
-  State<completeProfileScreen> createState() => _completeProfileScreenState();
+  State<CompleteProfileScreen> createState() => _CompleteProfileScreenState();
 }
 
-class _completeProfileScreenState extends State<completeProfileScreen> {
+class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   @override
@@ -44,7 +44,7 @@ class _completeProfileScreenState extends State<completeProfileScreen> {
                           hintText: "First Name"
                       ),
                       validator: (String? value){
-                        if((value?.isEmpty?? true) || value!.length <= 5){
+                        if(value?.isEmpty?? true){
                           return "*Enter First Name";
                         }
                         return null;
@@ -56,7 +56,7 @@ class _completeProfileScreenState extends State<completeProfileScreen> {
                           hintText: "Last Name"
                       ),
                       validator: (String? value){
-                        if((value?.isEmpty?? true) || value!.length <= 5){
+                        if(value?.isEmpty?? true){
                           return "*Enter Last Name";
                         }
                         return null;
@@ -68,7 +68,7 @@ class _completeProfileScreenState extends State<completeProfileScreen> {
                           hintText: "Mobile Number"
                       ),
                       validator: (String? value){
-                        if((value?.isEmpty?? true) || value!.length <= 5){
+                        if((value?.isEmpty?? true) || value!.length <= 11){
                           return "*Enter Mobile Number";
                         }
                         return null;
@@ -80,7 +80,7 @@ class _completeProfileScreenState extends State<completeProfileScreen> {
                           hintText: "City"
                       ),
                       validator: (String? value){
-                        if((value?.isEmpty?? true) || value!.length <= 5){
+                        if(value?.isEmpty?? true){
                           return "*Enter City";
                         }
                         return null;
@@ -94,7 +94,7 @@ class _completeProfileScreenState extends State<completeProfileScreen> {
                           hintText: "Shipping Address"
                       ),
                       validator: (String? value){
-                        if((value?.isEmpty?? true) || value!.length <= 5){
+                        if(value?.isEmpty?? true){
                           return "*Enter Shipping Address";
                         }
                         return null;
@@ -109,7 +109,7 @@ class _completeProfileScreenState extends State<completeProfileScreen> {
                           if(!_formkey.currentState!.validate()){
                             return;
                           }
-                          Get.to(const otpVerificationScreen());
+                          Get.to(const OtpVerificationScreen());
 
                         }, child: const Text("Complete"),
                       ),
