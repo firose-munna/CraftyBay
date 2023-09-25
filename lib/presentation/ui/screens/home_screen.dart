@@ -1,8 +1,10 @@
+
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:craftybay/presentation/ui/widgets/category_card.dart';
 import 'package:craftybay/presentation/ui/widgets/cicular_icon_button.dart';
 import 'package:craftybay/presentation/ui/widgets/home/home_slider.dart';
 import 'package:craftybay/presentation/ui/widgets/home/section_title.dart';
+import 'package:craftybay/presentation/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -91,6 +93,52 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 8,
               ),
+              
+              SizedBox(
+                height: 165,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 20,
+                    itemBuilder: (context, index){
+                      return const ProductCard();
+                    }),
+              ),
+
+              const SizedBox(
+                height: 8,
+              ),
+              SectionTitle(title: 'Special', onTap: () {}),
+              const SizedBox(
+                height: 8,
+              ),
+
+              SizedBox(
+                height: 165,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 20,
+                    itemBuilder: (context, index){
+                      return const ProductCard();
+                    }),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              SectionTitle(title: 'New', onTap: () {}),
+              const SizedBox(
+                height: 8,
+              ),
+
+              SizedBox(
+                height: 165,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 20,
+                    itemBuilder: (context, index){
+                      return const ProductCard();
+                    }),
+              )
+
             ],
           ),
         ),

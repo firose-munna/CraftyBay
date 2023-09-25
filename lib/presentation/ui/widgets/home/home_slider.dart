@@ -31,7 +31,7 @@ class _HomeSliderState extends State<HomeSlider> {
                 return Container(
                     width: MediaQuery.of(context).size.width,
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: const BoxDecoration(color: Colors.amber),
+                    decoration: const BoxDecoration(color: AppColors.primaryColor),
                     alignment: Alignment.center,
                     child: Text(
                       'text $i',
