@@ -1,4 +1,6 @@
+import 'package:craftybay/presentation/ui/screens/category_list_screen.dart';
 import 'package:craftybay/presentation/ui/screens/home_screen.dart';
+import 'package:craftybay/presentation/ui/screens/wish_list_screen.dart';
 import 'package:craftybay/presentation/ui/utility/color_palette.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +17,9 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
 
   final List<Widget> _screen = [
     const HomeScreen(),
+    const CategoryListScreen(),
     const HomeScreen(),
-    const HomeScreen(),
-    const HomeScreen(),
+    const WishListScreen(),
   ];
   @override
   Widget build(BuildContext context) {

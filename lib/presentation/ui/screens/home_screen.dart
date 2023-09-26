@@ -1,4 +1,6 @@
 
+import 'package:craftybay/presentation/ui/screens/category_list_screen.dart';
+import 'package:craftybay/presentation/ui/screens/product_list_screen.dart';
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:craftybay/presentation/ui/widgets/category_card.dart';
 import 'package:craftybay/presentation/ui/widgets/cicular_icon_button.dart';
@@ -7,6 +9,7 @@ import 'package:craftybay/presentation/ui/widgets/home/section_title.dart';
 import 'package:craftybay/presentation/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -72,7 +75,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 8,
               ),
-              SectionTitle(title: 'All Categories', onTap: () {}),
+              SectionTitle(title: 'All Categories', onTap: () {
+                Get.to(const CategoryListScreen());
+              }),
               const SizedBox(
                 height: 8,
               ),
@@ -89,7 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 8,
               ),
-              SectionTitle(title: 'Popular', onTap: () {}),
+              SectionTitle(title: 'Popular', onTap: () {
+                Get.to(const ProductListScreen());
+              }),
               const SizedBox(
                 height: 8,
               ),
@@ -107,7 +114,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 8,
               ),
-              SectionTitle(title: 'Special', onTap: () {}),
+              SectionTitle(title: 'Special', onTap: () {
+                Get.to(const ProductListScreen());
+              }),
               const SizedBox(
                 height: 8,
               ),
@@ -124,7 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 8,
               ),
-              SectionTitle(title: 'New', onTap: () {}),
+              SectionTitle(title: 'New', onTap: () {
+                Get.to(const ProductListScreen());
+              }),
               const SizedBox(
                 height: 8,
               ),
