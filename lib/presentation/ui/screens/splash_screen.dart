@@ -1,5 +1,6 @@
 
 import 'package:craftybay/presentation/ui/screens/home_screen.dart';
+import 'package:craftybay/presentation/ui/screens/main_bottom_nav_screen.dart';
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void goToHomeScreen(){
     Future.delayed(const Duration(seconds: 3)).then((value) => {
-      Get.offAll(const HomeScreen())
+      Get.offAll(const MainBottomNavScreen())
     });
   }
 
