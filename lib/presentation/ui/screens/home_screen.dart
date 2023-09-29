@@ -1,5 +1,4 @@
-
-import 'package:craftybay/presentation/ui/screens/category_list_screen.dart';
+import 'package:craftybay/presentation/state_holders/main_bottom_nav_controller.dart';
 import 'package:craftybay/presentation/ui/screens/product_list_screen.dart';
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:craftybay/presentation/ui/widgets/category_card.dart';
@@ -76,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 8,
               ),
               SectionTitle(title: 'All Categories', onTap: () {
-                Get.to(const CategoryListScreen());
+                Get.find<MainBottomNavController>().changeScreen(1);
               }),
               const SizedBox(
                 height: 8,

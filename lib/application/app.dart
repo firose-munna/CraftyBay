@@ -1,3 +1,4 @@
+import 'package:craftybay/application/state_holder_binder.dart';
 import 'package:craftybay/presentation/ui/screens/splash_screen.dart';
 import 'package:craftybay/presentation/ui/utility/color_palette.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class CrapftyBay extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "CraftyBay",
       home: const SplashScreen(),
+      initialBinding: StateHoldersBinder(),
       theme: ThemeData(
         primarySwatch:
             MaterialColor(AppColors.primaryColor.value, AppColors().color),
@@ -36,3 +38,4 @@ class CrapftyBay extends StatelessWidget {
     );
   }
 }
+
