@@ -1,3 +1,4 @@
+import 'package:craftybay/presentation/state_holders/email_verification_controller.dart';
 import 'package:craftybay/presentation/ui/screens/auth/otp_verification_screen.dart';
 import 'package:craftybay/presentation/ui/utility/image_paths.dart';
 import 'package:flutter/material.dart';
@@ -58,15 +59,21 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   const SizedBox(height: 10,),
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
-
-                      onPressed: () {
-                        if(!_formkey.currentState!.validate()){
-                          return;
+                    child: GetBuilder<EmailVerificationController>(
+                      builder: (controller) {
+                        if(controller.emailVerificationInProgress){
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
                         }
-                        Get.to(const OtpVerificationScreen());
-                      },
-                      child: const Text("Next"),
+                        return ElevatedButton(
+                          onPressed: () async {
+                              verifyEmail(controller);
+                            },
+
+                          child: const Text("Next"),
+                        );
+                      }
                     ),
                   )
                 ],
@@ -75,6 +82,22 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
           ),
         ),
       ),
+
     );
   }
+  Future<void> verifyEmail(EmailVerificationController controller) async {
+    final response = await controller.verifyEmail(_emailTEController.text.trim());
+    if (response) {
+      Get.to(() => const OtpVerificationScreen());
+    } else {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(controller.message),
+          ),
+        );
+      }
+    }
+  }
+
 }
