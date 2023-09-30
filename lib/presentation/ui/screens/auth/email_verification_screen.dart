@@ -15,6 +15,7 @@ class EmailVerificationScreen extends StatefulWidget {
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final TextEditingController _emailTEController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,16 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   ),),
                   const SizedBox(height: 22,),
                   TextFormField(
+                    controller: _emailTEController,
                     decoration: const InputDecoration(
                       hintText: "Email"
                     ),
                     validator: (String? value){
                       if(value?.isEmpty?? true){
-                        return "*Enter valid email";
+                        return "*Enter email address";
+                      }
+                      else if(value?.isEmail == false){
+                        return "*Enter valid email address";
                       }
                       return null;
                     },
