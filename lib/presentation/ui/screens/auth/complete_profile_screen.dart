@@ -109,7 +109,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                           if(!_formkey.currentState!.validate()){
                             return;
                           }
-                          Get.to(const OtpVerificationScreen());
+                          //Get.to(const OtpVerificationScreen());
 
                         }, child: const Text("Complete"),
                       ),
