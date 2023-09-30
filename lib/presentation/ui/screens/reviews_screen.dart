@@ -1,3 +1,4 @@
+import 'package:craftybay/presentation/ui/screens/create_reviews_screen.dart';
 import 'package:craftybay/presentation/ui/utility/color_palette.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,6 +30,7 @@ class _ProductReviewsScreenState extends State<ProductReviewsScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
+
                   child: ListView.separated(
                     itemCount: 10,
                     separatorBuilder: (context, index) => const Divider(),
@@ -65,7 +67,7 @@ class _ProductReviewsScreenState extends State<ProductReviewsScreen> {
 
                   InkWell(
                     onTap: (){
-
+                      Get.to(const CreateReviewScreen());
                     },
                     child: const SizedBox(
                         child: CircleAvatar(

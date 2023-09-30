@@ -208,7 +208,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 ),
               ),
             ),
-
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               decoration: BoxDecoration(
@@ -242,7 +241,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 ],
               ),
             )
-
 
           ],
         ),
